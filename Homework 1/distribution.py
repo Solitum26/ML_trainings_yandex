@@ -11,6 +11,7 @@ class LaplaceDistribution:
         ####
         # Do not change the class outside of this block
         # Your code here
+        pass
         ####
 
     def __init__(self, features):
@@ -33,7 +34,7 @@ class LaplaceDistribution:
         '''
         ####
         # Do not change the class outside of this block
-        return 
+        return np.log(np.exp(-np.abs(values - self.loc) / self.scale) / (2 * self.scale))
         ####
         
     
