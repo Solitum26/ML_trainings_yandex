@@ -125,9 +125,9 @@ class KNearestNeighbor:
         #       and two broadcast sums.                                         #
         #########################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-        dists = np.sum((X[:, np.newaxis] - self.X_train) ** 2, axis=2) ** 0.5
+        dists = -2 * np.dot(X, self.X_train.T) + np.sum(self.X_train ** 2, axis=1) + np.sum(X ** 2, axis=1)[:, np.newaxis]
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-        return dists
+        return dists ** 0.5
 
     def predict_labels(self, dists, k=1):
         """
